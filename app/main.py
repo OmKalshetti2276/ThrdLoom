@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from app.services.search_service import search_issue
+# from app.graph.repository import create_category, get_category
 
 
 class SearchIssueRequest(BaseModel):
@@ -23,26 +25,36 @@ def home():
 
 @app.post("/search-issue")
 
-def search_issue(request: SearchIssueRequest):
+def search_issue_route(request: SearchIssueRequest):
 
-    embedding=use_embedding(request.issue)
-    matches=query_db(embedding)
-    # we will use this to as a parent function to all orchestration functions. It will take the issue and pass it to the model to get the 
-    # embedding and then pass the embedding to the model to get the response.
-    return matches
+    knowledge = search_issue(
+        request.issue
+    )
 
-def use_embedding(issue):
-    # use this to pass the embedding to the model
-    # and get the vector
-
-    return {
+    if knowledge is None:
+        return {
+            "found": False,
+            "knowledge":[]
         }
 
-# @app.post("/query-db")
+    return {
+        "found": True,
+        "knowledge": knowledge
+    }
 
-def query_db(   ):
-    # pass the vector embedding as query and then get a matches list with highest
-    # confidence than threshold 
 
-    return
-  
+
+
+
+
+# @app.post("/sample")
+
+# def run_sample():
+
+#     print("Calling search_issue...")
+
+#     sample = search_issue("FastAPI cannot connect to the database.")
+
+#     print("Returned:", sample)
+
+#     return sample

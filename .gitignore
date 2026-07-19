@@ -1,5 +1,90 @@
+# ==========================
+# Virtual Environment
+# ==========================
 .venv/
-.vscode/
-__pycache__/
-*.pyc
+venv/
+env/
+ENV/
+
+# ==========================
+# Environment Variables
+# ==========================
 .env
+.env.*
+!.env.example
+
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ==========================
+# Build / Distribution
+# ==========================
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# ==========================
+# Testing & Coverage
+# ==========================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# ==========================
+# Type Checking & Linters
+# ==========================
+.mypy_cache/
+.pyre/
+.pytype/
+.ruff_cache/
+
+# ==========================
+# Jupyter
+# ==========================
+.ipynb_checkpoints/
+
+# ==========================
+# IDEs & Editors
+# ==========================
+.vscode/
+.idea/
+
+# ==========================
+# Operating System Files
+# ==========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================
+# Logs
+# ==========================
+*.log
+logs/
+
+# ==========================
+# Local Databases / Storage
+# (Only if stored locally)
+# ==========================
+neo4j_data/
+qdrant_storage/
+
+# ==========================
+# Project Specific
+# ==========================
+RULES.md
+seed.py
+
+# ==========================
+# Temporary Files
+# ==========================
+*.tmp
+*.temp

@@ -1,11 +1,13 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
 from app.services.search_service import search_issue
-# from app.graph.repository import create_category, get_category
+from app.services.add_issue_service import add_new_issue
+from app.models.requests import (
+    SearchIssueRequest,
+    AddIssueRequest
+)
+from app.graph.repository import get_category_names
 
 
-class SearchIssueRequest(BaseModel):
-    issue:str
 
 app = FastAPI(
     title="ThrdLoom: Your Organizational Memory",
@@ -28,6 +30,7 @@ def home():
 def search_issue_route(request: SearchIssueRequest):
 
     knowledge = search_issue(
+        request.category,
         request.issue
     )
 
@@ -41,6 +44,30 @@ def search_issue_route(request: SearchIssueRequest):
         "found": True,
         "knowledge": knowledge
     }
+
+
+@app.get("/get-categories")
+
+def get_categories():
+    return get_category_names()
+
+
+
+@app.post("/add-issue")
+
+def add_issue_route(request:AddIssueRequest):
+
+    result = add_new_issue(request)
+
+    return result
+
+
+
+
+
+
+
+
 
 
 

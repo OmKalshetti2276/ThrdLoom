@@ -83,6 +83,8 @@ qdrant_storage/
 # ==========================
 RULES.md
 seed.py
+seed_problems.py
+test.py
 
 # ==========================
 # Temporary Files

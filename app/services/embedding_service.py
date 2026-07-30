@@ -1,16 +1,25 @@
-_embedding_model = None
+import os
+import voyageai
+from dotenv import load_dotenv
+
+load_dotenv()
+
+client = voyageai.Client(
+    api_key=os.getenv("VOYAGE_API_KEY")
+)
+
+MODEL = "voyage-4-lite"
 
 
-def get_embedding_model():
-    global _embedding_model
+def generate_embedding(text: str) -> list[float]:
+    """
+    Generate a single sentence embedding.
+    Raises Voyage exceptions so the caller can handle them.
+    """
 
-    if _embedding_model is None:
-        from sentence_transformers import SentenceTransformer
-        _embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+    result = client.embed(
+        texts=[text],
+        model=MODEL
+    )
 
-    return _embedding_model
-
-
-def generate_embedding(text: str):
-    model = get_embedding_model()
-    return model.encode(text).tolist()
+    return result.embeddings[0]

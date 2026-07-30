@@ -73,7 +73,6 @@ ThrdLoom is an organizational memory layer that understands *meaning*, not just 
 
 Someone hits a FastAPI reload bug and describes it their own way — not the exact wording used when it was first logged. ThrdLoom still finds it, ranked by relevance:
 
-![Search issue request](docs/search_issue_request.png)
 ![Search issue response](docs/search_issue_response.png)
 
 **2. Add a genuinely new issue:**

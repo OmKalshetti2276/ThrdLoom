@@ -73,20 +73,20 @@ ThrdLoom is an organizational memory layer that understands *meaning*, not just 
 
 Someone hits a FastAPI reload bug and describes it their own way — not the exact wording used when it was first logged. ThrdLoom still finds it, ranked by relevance:
 
-![Search issue request](docs/screenshots/search_issue_request.png)
-![Search issue response](docs/screenshots/search_issue_response.png)
+![Search issue request](docs/search_issue_request.png)
+![Search issue response](docs/search_issue_response.png)
 
 **2. Add a genuinely new issue:**
 
-![Add new issue request](docs/screenshots/sample_issue_request.png)
-![Add new issue response](docs/screenshots/sample_issue_response.png)
+![Add new issue request](docs/sample_issue_request.png)
+![Add new issue response](docs/sample_issue_response.png)
 
 **3. Try to add it again (near-duplicate):**
 
 Same issue, described slightly differently. Instead of creating a duplicate entry, ThrdLoom recognizes it's already been logged and rejects it:
 
-![Duplicate issue request](docs/screenshots/duplicate_issue_request.png)
-![Duplicate issue response](docs/screenshots/duplicate_issue_response.png)
+![Duplicate issue request](docs/duplicate_issue_request.png)
+![Duplicate issue response](docs/duplicate_issue_response.png)
 
 ---
 
